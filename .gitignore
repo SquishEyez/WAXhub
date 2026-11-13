@@ -1,0 +1,19 @@
+# dependencies and build output
+node_modules/
+android/dist/
+desktop/web/
+desktop/release/
+
+# signing material: never commit these
+*.jks
+*.keystore
+*.p12
+*.pem
+*password*
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

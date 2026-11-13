@@ -1,0 +1,50 @@
+{
+  "name": "wax-hub",
+  "productName": "WAX Hub",
+  "version": "2.1.0",
+  "description": "WAX wallet, NFTs, market, drops, creator studio and asset rescue for WAX mainnet",
+  "homepage": "https://github.com/",
+  "license": "MIT",
+  "author": {
+    "name": "WAX Hub",
+    "email": "wax-hub@users.noreply.github.com"
+  },
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "prepare-web": "node -e \"const fs=require('fs');fs.rmSync('web',{recursive:true,force:true});fs.cpSync('../android/dist/web','web',{recursive:true})\"",
+    "start": "npm run prepare-web && electron .",
+    "dist": "npm run prepare-web && electron-builder --linux AppImage deb --x64"
+  },
+  "devDependencies": {
+    "electron": "33.4.11",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "app.waxhub",
+    "productName": "WAX Hub",
+    "artifactName": "wax-hub-${version}-${arch}.${ext}",
+    "files": [
+      "main.js",
+      "web/**",
+      "build/icon.png"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "linux": {
+      "category": "Finance",
+      "icon": "build/icon.png",
+      "synopsis": "WAX wallet, NFTs, drops and asset rescue",
+      "executableName": "wax-hub",
+      "desktop": {
+        "StartupWMClass": "WAX Hub"
+      }
+    },
+    "deb": {
+      "packageCategory": "utils"
+    },
+    "publish": null
+  }
+}

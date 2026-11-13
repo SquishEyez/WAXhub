@@ -1,0 +1,14 @@
+{
+  "name": "wax-hub-android",
+  "private": true,
+  "version": "2.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs base/wax-hub-2.0.apk",
+    "build:web": "node build.mjs base/wax-hub-2.0.apk --web-only"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.0",
+    "prettier": "3.3.3"
+  }
+}
